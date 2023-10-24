@@ -1,0 +1,26 @@
+.todos {
+  list-style: none;
+  padding-left: 0;
+  .todo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.status {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 10px;
+  background-color: red;
+  cursor: pointer;
+  &.done {
+    background-color: green;
+    & + span {
+      text-decoration: line-through;
+    }
+  }
+}
