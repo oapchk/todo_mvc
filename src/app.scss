@@ -1,3 +1,32 @@
+.btn-delete {
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -999px;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  &:after {
+    content: "x";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-indent: 0;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 100;
+    font-family: sans-serif;
+    color: gray;
+  }
+}
+
 .todos {
   list-style: none;
   padding-left: 0;
@@ -5,6 +34,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: 13px;
+    &:hover {
+      .btn-delete {
+        opacity: 1;
+      }
+    }
   }
 }
 
@@ -23,4 +58,8 @@
       text-decoration: line-through;
     }
   }
+}
+
+.current {
+  border: 1px solid red;
 }
