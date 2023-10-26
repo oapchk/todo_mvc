@@ -27,18 +27,15 @@ function App() {
     task.status = task.status === "in progress" ? "done" : "in progress";
     setTodos([...todos]);
   };
-
-  const handleDeleteTodo = (todo) => {
-    setTodos(todos.filter((task) => task !== todo));
+  const handleDelete = (todo) => {
+    setTodos(todos.filter((task) => task !== todo)); // usuwanie z ui
   };
-
   const handleDeleteDoneTasks = () => {
     setTodos(todos.filter((task) => task.status !== "done"));
   };
-
   return (
     <div className="todoapp">
-      <h1>todos🐈</h1>
+      <h1>todos 🐈</h1>
       <section className="todos">
         <input
           type="text"
@@ -58,10 +55,7 @@ function App() {
                 onClick={() => handleChangeStatus(task)}
               ></span>
               <span>{task.title}</span>
-              <button
-                className="btn-delete"
-                onClick={() => handleDeleteTodo(task)}
-              >
+              <button className="btn-delete" onClick={() => handleDelete(task)}>
                 delete
               </button>
             </li>
@@ -72,9 +66,9 @@ function App() {
             {todos.filter((task) => task.status === "in progress").length} items
             left
           </p>
-          {todos.some((task) => task.status === "done") && (
-            <button className="btn" onClick={() => handleDeleteDoneTasks}>
-              Clear{" "}
+          {!!todos.filter((task) => task.status === "done").length && (
+            <button className="counter" onClick={handleDeleteDoneTasks}>
+              Clear completed
             </button>
           )}
         </div>
