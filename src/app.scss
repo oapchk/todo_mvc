@@ -1,3 +1,41 @@
+body {
+  background-color: rgb(245, 245, 245);
+}
+
+.todoapp h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+  text-rendering: optimizeLegibility;
+  margin: 40px 0 20px 0;
+}
+
+.todos {
+  width: 550px;
+  margin-inline: auto;
+  border: 1px solid rgb(230, 230, 230);
+  background-color: rgba(254, 254, 254, 1);
+
+  .todo-input {
+    padding: 16px 16px 16px 60px;
+    border: none;
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.4;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+
+    &::placeholder {
+      color: rgb(230, 230, 230);
+      font-size: 24px;
+    }
+  }
+}
+
 .btn-delete {
   opacity: 0;
   transition: all 200ms ease-in-out;
@@ -7,9 +45,10 @@
   display: inline-block;
   overflow: hidden;
   text-indent: -999px;
-  border: none;
+  border: 0;
   background-color: transparent;
   position: relative;
+
   &:after {
     content: "x";
     position: absolute;
@@ -27,14 +66,25 @@
   }
 }
 
-.todos {
+.todos-list {
   list-style: none;
   padding-left: 0;
-  .todo {
+
+  .todos-item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 13px;
+    gap: 10px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    word-break: break-all;
+    padding: 15px 15px 15px 15px;
+    line-height: 1.2;
+    transition: color 0.4s;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: rgb(77, 77, 77);
+    letter-spacing: 1px;
+
     &:hover {
       .btn-delete {
         opacity: 1;
@@ -47,13 +97,17 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 1px solid rgb(241 241 241);
   display: inline-block;
   margin: 10px;
-  background-color: red;
+  background-color: white;
   cursor: pointer;
+
   &.done {
-    background-color: green;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E");
+    background-position: -8px -5px;
+    border-color: transparent;
+
     & + span {
       text-decoration: line-through;
     }
@@ -62,4 +116,31 @@
 
 .current {
   border: 1px solid red;
+}
+
+.counter {
+  color: rgb(182 182 182);
+  padding: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  color: rgb(182 182 182);
+  padding: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 }
