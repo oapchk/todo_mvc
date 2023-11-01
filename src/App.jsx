@@ -1,5 +1,10 @@
 import "./App.scss";
 import { useState } from "react";
+import Headline from "./components/Headline.jsx";
+import TodoAdd from "./components/TodoAdd.jsx";
+import TodoList from "./components/TodoList.jsx";
+import Counter from "./components/Counter.jsx";
+import DeleteAllBtn from "./components/DeleteAllBtn.jsx";
 
 const getId = (todos) =>
   todos.length === 0 ? 1 : Math.max(...todos.map((task) => task.id)) + 1;
@@ -35,41 +40,19 @@ function App() {
   };
   return (
     <div className="todoapp">
-      <h1>todos 🐈</h1>
+      <Headline />
       <section className="todos">
-        <input
-          type="text"
-          className="todo-input"
-          value={todo}
-          placeholder="What needs to be done?"
-          onChange={(event) => setTodo(event.target.value)}
-          onKeyUp={handleAddTodo}
+        <TodoAdd todo={todo} setTodo={setTodo} addTodo={handleAddTodo} />
+        <TodoList
+          todos={todos}
+          handleChangeStatus={handleChangeStatus}
+          handleDeleteTodo={handleDelete}
         />
-        <ul className="todos-list">
-          {todos.map((task) => (
-            <li className="todos-item" key={task.id}>
-              <span
-                className={
-                  task.status === "in progress" ? "status" : "status done"
-                }
-                onClick={() => handleChangeStatus(task)}
-              ></span>
-              <span>{task.title}</span>
-              <button className="btn-delete" onClick={() => handleDelete(task)}>
-                delete
-              </button>
-            </li>
-          ))}
-        </ul>
+
         <div className="box">
-          <p className="counter">
-            {todos.filter((task) => task.status === "in progress").length} items
-            left
-          </p>
+          <Counter todos={todos} />
           {!!todos.filter((task) => task.status === "done").length && (
-            <button className="counter" onClick={handleDeleteDoneTasks}>
-              Clear completed
-            </button>
+            <DeleteAllBtn handleDeleteDoneTasks={handleDeleteDoneTasks} />
           )}
         </div>
       </section>
