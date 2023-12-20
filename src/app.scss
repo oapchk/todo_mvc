@@ -128,10 +128,14 @@ body {
 
 .box {
   display: flex;
+  flex-shrink: 1;
   justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
 }
 
-.btn {
+.btn,
+.filter-btn {
   color: rgb(182 182 182);
   padding: 10px;
   font-weight: 300;
