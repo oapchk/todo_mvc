@@ -26,6 +26,7 @@ body {
 
   .todo-input {
     background-color: #17181f;
+    color: #ddd;
 
     padding: 16px 16px 16px 60px;
     border: none;
@@ -38,8 +39,9 @@ body {
     font-weight: 100;
 
     &::placeholder {
-      color: rgb(230, 230, 230);
+      color: #30313d;
       font-size: 24px;
+      font-style: italic;
     }
   }
 }
@@ -50,7 +52,9 @@ body {
   cursor: pointer;
   width: 30px;
   height: 30px;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   overflow: hidden;
   text-indent: -999px;
   border: 0;
@@ -59,9 +63,7 @@ body {
 
   &:after {
     content: "✖️";
-
-    // position: absolute;
-    // top: -4px;
+    top: -4px;
     left: 0;
     display: flex;
     justify-content: flex-end;
@@ -138,17 +140,19 @@ body {
 }
 
 .box {
-  display: flex;
-  flex-shrink: 1;
-  justify-content: space-between;
-  align-items: center;
+  // display: flex;
+  // flex-shrink: 1;
+  // justify-content: space-between;
+  // align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   padding-inline: 20px;
 }
 
 .btn,
-.filter-btn {
+.btn-filters {
   color: rgb(182 182 182);
-  padding: 10px;
+  padding: 5px;
   font-weight: 300;
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

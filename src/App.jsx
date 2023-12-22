@@ -65,15 +65,28 @@ function App() {
 
         <div className="box">
           <Counter todos={todos} />
-          <div>
-            <button onClick={() => handleFilteredTasks("all")}>All</button>
-            <button onClick={() => handleFilteredTasks("active")}>
-              Active
-            </button>
-            <button onClick={() => handleFilteredTasks("completed")}>
-              Completed
-            </button>
-          </div>
+          {!!todos.length && (
+            <div>
+              <button
+                className="btn btn-filters"
+                onClick={() => handleFilteredTasks("all")}
+              >
+                All
+              </button>
+              <button
+                className="btn btn-filters"
+                onClick={() => handleFilteredTasks("active")}
+              >
+                Active
+              </button>
+              <button
+                className="btn btn-filters"
+                onClick={() => handleFilteredTasks("completed")}
+              >
+                Completed
+              </button>
+            </div>
+          )}
           {!!todos.filter((task) => task.status === "done").length && (
             <DeleteAllBtn handleDeleteDoneTasks={handleDeleteDoneTasks} />
           )}

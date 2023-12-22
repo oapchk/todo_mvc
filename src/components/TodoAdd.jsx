@@ -8,6 +8,7 @@ function TodoAdd({ todo, setTodo, addTodo }) {
       value={todo}
       onChange={(event) => setTodo(event.target.value)}
       onKeyUp={addTodo}
+      placeholder="What needs to be done?"
     />
   );
 }
