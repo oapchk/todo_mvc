@@ -66,7 +66,7 @@ function App() {
         <div className="box">
           <Counter todos={todos} />
           {!!todos.length && (
-            <div>
+            <div className="box__filters">
               <button
                 className="btn btn-filters"
                 onClick={() => handleFilteredTasks("all")}

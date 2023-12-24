@@ -147,6 +147,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding-inline: 20px;
+  &__filters {
+    display: flex;
+  }
 }
 
 .btn,
